@@ -1,0 +1,12 @@
+{
+    "comment": "ui-router综合示例",
+    "version": "1.0.1",
+    "contextPath": "/ui-router",
+    "port": 9005,
+    "hostname": "localhost",
+    "openurl": "http://localhost:9005/ui-router/index.html",
+    "mock": "test/mock",
+    "ajaxPrefix": "/xhr",
+    "webapp": "./",
+    "htmlPath": ""
+}

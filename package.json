@@ -1,0 +1,24 @@
+{
+  "name": "uirouter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -a 127.0.0.1 -p 7070"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "fs": "0.0.2",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "openurl": "^1.1.1",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "shark-deploy-git": "^0.1.6",
+    "tiny-lr": "^0.2.1"
+  }
+}
