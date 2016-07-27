@@ -35,6 +35,7 @@ angular.module('routerApp')
                     var ele = $(e.target).next('.js-group-wrap');
                     ele.slideToggle(200);
                 };
+                /*获取logInfo.do中可以访问的导航页面*/
                 function getLogInfo() {
                     LogInfo.getLogInfo().then(function(data) {
                         $scope.groups = RouterConfig.getNavList([].concat(data.permList));

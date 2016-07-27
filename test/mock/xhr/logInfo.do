@@ -3,6 +3,6 @@
 	"message":"",
 	"data":{
 		"name": "gmm",
-		"permList": [1,3]
+		"permList": [1,2,3]
 	}
 }
