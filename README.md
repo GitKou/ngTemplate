@@ -1,4 +1,4 @@
-诡异##开发步骤 ##
+##开发步骤 ##
 ### 准备 ###
 1.Install nondejs ruby
 2.Install grunt sass compass
