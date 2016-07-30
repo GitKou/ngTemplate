@@ -2,8 +2,8 @@
 
 /**
  * @ngdoc service
- * @name adminApp.module
- * @author zzj
+ * @name routerApp.module
+ * @author gmm
  * @description
  * # module
  * Service in the adminApp.
@@ -43,8 +43,6 @@ angular.module('routerApp')
                         }
                     }
                 }
-
-
                 return temp_navList;
             }
         };

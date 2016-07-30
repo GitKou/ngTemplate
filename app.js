@@ -26,7 +26,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('index1.usermng.newuser', {
             url: '/newuser',
-            templateUrl: 'tpl/newuser.html'
+            templateUrl: 'tpl/newuser.html',
+            controller: 'newUserCtrl'
         })
         .state('index1.usermng.userinfo', {
             url: '/userinfo',
@@ -34,7 +35,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('index1.usermng.useranla', {
             url: '/useranla',
-            templateUrl: 'tpl/useranla.html'
+            templateUrl: 'tpl/useranla.html',
+            params: { 'rnd': 213 }
         })
         .state('index1.permission', {
             url: '/permission',
