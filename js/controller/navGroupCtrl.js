@@ -14,7 +14,6 @@ angular.module('routerApp')
             // if ($scope.currentState === state) {
             //     return;
             // };
-            console.log(params);
             var dParams = { rnd: new Date().getTime() };
             if (params) {
                 $.extend(dParams, params);

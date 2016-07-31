@@ -20,14 +20,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/usermng',
             views: {
                 'main@index1': {
-                    templateUrl: 'tpl/usermng.html'
+                    templateUrl: 'tpl/usermng.html',
+                    controller: 'newMngCtrl'
                 }
             }
         })
         .state('index1.usermng.newuser', {
             url: '/newuser',
-            templateUrl: 'tpl/newuser.html',
-            controller: 'newUserCtrl'
+            templateUrl: 'tpl/newuser.html'
         })
         .state('index1.usermng.userinfo', {
             url: '/userinfo',

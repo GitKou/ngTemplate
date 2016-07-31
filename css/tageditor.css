@@ -1,0 +1,94 @@
+.tag-editor {
+    position: relative;
+    padding: 0 40px 0 10px;
+    border-style: solid;
+    border-color: #dfdfdf;
+    border-width: 0 0 1px 0;
+    color: #222;
+}
+
+.tokens {
+    cursor: text;
+}
+
+.token {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 1px;
+    margin-right: 8px;
+    color: #aaa;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.token::before {
+    content: "#";
+}
+
+.token:hover {
+    text-decoration: line-through;
+}
+
+.ipt-wrap {
+    position: relative;
+    float: left;
+}
+
+.tag-input {
+    min-width: 60px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: #333;
+    border: 0;
+    outline: 0;
+}
+
+.ipt-wrap label {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ccc;
+    width: 240px;
+    height: 19px;
+    line-height: 19px;
+    color: #ccc;
+    font-size: 14px;
+    overflow: hidden;
+    cursor: text;
+}
+
+.used-tag-wrap {
+    position: absolute;
+    width: 100%;
+    padding: 15px 0 8px 9px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.used-token {
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    height: 30px;
+    line-height: 22px;
+    padding: 5px;
+    margin: 0 6px 6px 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.used-token:hover {
+    background-color: #eee;
+}
+
+.hide-calc-len {
+    position: absolute;
+    visibility: hidden;
+    white-space: nowrap;
+    word-break: keep-all;
+}
