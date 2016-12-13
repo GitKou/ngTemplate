@@ -13,6 +13,27 @@
                 <div class="row">
                     <tageditor used-tags="usedTags" tags="tags"></tageditor>
                 </div>
+                <div class="row">
+                    <table>
+                        <thead>
+                            <th><input type="checkbox"></th>
+                            <th>名字</th>
+                            <th>年龄</th>
+                        </thead>
+                    </table>
+                    <!--<shark-tbody datalist="datalist" thead-data="theadData" initTbody="initTbody"></shark-tbody>-->
+                    <shark-tbody  initTbody="initTbody"></shark-tbody>
+                </div>
+                <div class="row">
+                    <button class="btn btn-link" type="button" ng-click="selectAllProducts();">全选</button>
+                    <button class="btn btn-link" type="button" ng-click="reverseProducts();">反选</button>
+                    <button class="btn btn-link" type="button" ng-click="unSelectAllProducts();">不选</button>
+                    <button class="btn btn-link" type="button" ng-click="getSelectedItems();">提交 </button>
+                    <button class="btn btn-link" type="button" ng-click="changData();">更换数据 </button>
+                    <pre>
+                        {{selectedItems}}
+                    </pre>
+                </div>
             </div>
         </div>
     </div>
