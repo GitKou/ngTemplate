@@ -20,9 +20,22 @@
                             <th>名字</th>
                             <th>年龄</th>
                         </thead>
+
+                        <shark-tbody  init-tbody="initTbody"></shark-tbody>
+                        <!--<tbody>
+                            <tr ng-repeat="item in datalist track by $index">
+                                <td>
+                                    <input type="checkbox"  ng-model="item.isItemChecked">
+                                </td>
+                                <td>
+                                    {{item.purchaseOrder}}
+                                </td>
+                                <td>
+                                    {{item.supplierCode}}
+                                </td>>
+                            </tr>
+                        </tbody>-->
                     </table>
-                    <!--<shark-tbody datalist="datalist" thead-data="theadData" initTbody="initTbody"></shark-tbody>-->
-                    <shark-tbody  initTbody="initTbody"></shark-tbody>
                 </div>
                 <div class="row">
                     <button class="btn btn-link" type="button" ng-click="selectAllProducts();">全选</button>

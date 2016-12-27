@@ -1,5 +1,5 @@
 angular.module('routerApp')
-    .controller('newMngCtrl', ['$scope', 'modalServ', function ($scope, $modalServ) {
+    .controller('newMngCtrl', ['$scope', 'modalServ', 'logInfo', function ($scope, $modalServ, LogInfo) {
         //弹窗
         $scope.addItem = function () {
             $modalServ.open({
@@ -12,20 +12,15 @@ angular.module('routerApp')
         $scope.tags = [];
 
 
-        // 生成tbody
-
-        $scope.datalist = [{ name: 'gmm', age: 1 }, { name: 'fyc', age: 2 }];
-        $scope.theadData = ['name'];
-
         var tbody = null;
         $scope.initTbody = function (ele) {
             // 通过指令的回调获取指令中初始化的table示例
             tbody = ele;
-            tbody.initData({
-                datalist: $scope.datalist,
-                theadData:  $scope.theadData,
-                isCheckable: true
-            });
+            // tbody.initData({
+            //     datalist: datalist,
+            //     theadData: theadData,
+            //     isCheckable: true
+            // });
         }
 
         $scope.selectAllProducts = function () {
@@ -40,16 +35,24 @@ angular.module('routerApp')
         }
         $scope.getSelectedItems = function () {
             $scope.selectedItems = tbody.getSelectedItems();
-
         }
-        $scope.changData = function () {
-            $scope.datalist = [{ name: 'dsd', age: 1 }, { name: 'fxcyc', age: 2 }, { name: 'ds', age: 3 }];
-            tbody.initData({
-                datalist: $scope.datalist,
-                theadData: ['name', 'age']
+
+        function getDatalist() {
+            LogInfo.getDatalist().then(function (datalist) {
+                console.log(datalist.result.length);
+                // $scope.datalist = datalist.result;
+                tbody.initData({
+                    datalist: datalist.result,
+                    theadData: ['purchaseOrder', 'supplierCode', 'supplierName', 'orderType'],
+                    isCheckable: true
+                });
+            }, function () {
+
             });
+
+
         }
 
-
+        getDatalist();
 
     }]);

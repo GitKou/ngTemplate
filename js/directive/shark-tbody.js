@@ -15,10 +15,14 @@ angular.module('routerApp')
                 initTbody: '&'
             },
             link: function ($scope, ele, attr) {
-                var tbody = ele.sharkTbody(ele);
+                // ele.sharkTbody(ele);
                 // 向父scope返回该tbody对象
+                // $scope.initTbody = $scope.initTbody();
+                // $scope.initTbody(ele);
+
+                var tbody = ele.sharkTbody();
                 $scope.$parent.initTbody(tbody);
-                
+
             }
         };
     });

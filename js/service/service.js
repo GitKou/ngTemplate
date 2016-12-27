@@ -9,7 +9,7 @@
  * Service in the adminApp.
  */
 angular.module('routerApp')
-    .service('routerConfig', ['$http', '$q', '$rootScope', function($http, $q, $rootScope) {
+    .service('routerConfig', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
         var navList = [{
             "name": "用户",
             "children": [{
@@ -31,7 +31,7 @@ angular.module('routerApp')
         }];
 
         var service = {
-            getNavList: function(permList) {
+            getNavList: function (permList) {
                 var temp_navList = [].concat(navList),
                     navLength = navList.length;
 
@@ -49,9 +49,10 @@ angular.module('routerApp')
 
         return service;
     }])
-    .service('logInfo', ['$http', '$q', '$rootScope', 'common', function($http, $q, $rootScope, Common) {
+    .service('logInfo', ['$http', '$q', '$rootScope', 'common', function ($http, $q, $rootScope, Common) {
 
-        var logInfoUrl = '/xhr/logInfo.do'
+        var logInfoUrl = '/xhr/logInfo.do';
+        var datalistUrl = '/xhr/datalist2.do';
 
         var servie = {
             /**
@@ -60,13 +61,24 @@ angular.module('routerApp')
              *@param permList
              * @return {[defer]}
              **/
-            getLogInfo: function(params) {
+            getLogInfo: function (params) {
                 var defer = $q.defer();
-                Common.post(Common.contextPath + logInfoUrl, params).success(function(res) {
+                Common.post(Common.contextPath + logInfoUrl, params).success(function (res) {
                     if (res.code == 200) {
                         defer.resolve(res.data);
                     }
-                }).error(function() {
+                }).error(function () {
+                    defer.reject();
+                });
+                return defer.promise;
+            },
+            getDatalist: function () {
+                var defer = $q.defer();
+                Common.post(Common.contextPath + datalistUrl).success(function (res) {
+                    if (res.code == 200) {
+                        defer.resolve(res.data);
+                    }
+                }).error(function () {
                     defer.reject();
                 });
                 return defer.promise;

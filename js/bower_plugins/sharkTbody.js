@@ -5,58 +5,13 @@
 */
 (function ($) {
 
-    function Tbody(ele) {
-        this.ele = ele;
-    }
-
-    Tbody.prototype = {
-        ele: '',
-        options: {
-            theadData: [],
-            datalist: [],
-            isCheckable: false
-        },
-        initData: function (options) {
-            this.options = options;
-            _createElements(this.ele, options.theadData, options.datalist, options.isCheckable);
-        },
-        selectAllItems: function (data) {
-            this.ele.find('.js-checkbox').each(function (i, e) {
-                if (!$(this).is(':checked')) {
-                    $(this).prop('checked', true);
-                }
-            });
-        },
-        unselectAllItems: function () {
-            this.ele.find('.js-checkbox').each(function (i, e) {
-                if ($(this).is(':checked')) {
-                    $(this).prop('checked', false);
-                }
-            });
-        },
-        reverseItems: function () {
-            this.ele.find('.js-checkbox').each(function (i, e) {
-                $(this).prop('checked', !$(this).is(':checked'));
-            });
-        },
-        getSelectedItems: function () {
-            var selectedItems = [];
-            var that = this;
-            this.ele.find('.js-checkbox').each(function (i, e) {
-                if ($(this).is(':checked')) {
-                    selectedItems.push(that.options.datalist[i]);
-                }
-            });
-            return selectedItems;
-        }
-    };
     /* 初始化表单数据
       * @params datalist {array} 对象数组
-      * @params theadData {string} 逗号分隔的字符串 
+      * @params theadData {array} 筛选用数组
       * @params isCheckable {boolean} 是否可勾选 
      */
     function _createElements(ele, theadData, datalist, isCheckable) {
-        var tbody = $('<tbody/>');
+        var tbody = $('<tbody></tbody>');
         for (var i = 0; i < datalist.length; i++) {
             var tr = $('<tr/>');
             for (var j = 0; j < theadData.length; j++) {
@@ -76,8 +31,42 @@
     }
 
     $.fn.extend({
-        sharkTbody: function (ele, options) {
-            return new Tbody(ele, options);
+        sharkTbody: function () {
+            var tbody = $(this);
+            var defaults = {
+                datalist: [],
+                theadData: [],
+                isCheckable: false
+            };
+            var args = {};
+            
+            tbody.initData = function (options) {
+                args = $.extend(defaults, options);
+                _createElements(tbody, args.theadData, args.datalist, args.isCheckable);
+            }
+            tbody.selectAllItems = function (data) {
+                tbody.find('.js-checkbox:not(:checked)').prop('checked', true);
+
+            }
+            tbody.unselectAllItems = function () {
+                tbody.find('.js-checkbox:checked').prop('checked', false);
+            }
+            tbody.reverseItems = function () {
+                tbody.find('.js-checkbox').each(function (i, e) {
+                    $(this).prop('checked', !$(this).is(':checked'));
+                });
+            }
+            tbody.getSelectedItems = function () {
+                var selectedItems = [];
+                tbody.find('.js-checkbox').each(function (i, e) {
+                    if ($(this).is(':checked')) {
+                        selectedItems.push(args.datalist[i]);
+                    }
+                });
+                return selectedItems;
+            }
+
+            return tbody;
         }
     });
 })(jQuery);
