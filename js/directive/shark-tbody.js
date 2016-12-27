@@ -17,12 +17,14 @@ angular.module('routerApp')
             link: function ($scope, ele, attr) {
                 // ele.sharkTbody(ele);
                 // 向父scope返回该tbody对象
-                // $scope.initTbody = $scope.initTbody();
-                // $scope.initTbody(ele);
+                $scope._initTbody = $scope.initTbody();
+                $scope._initTbody(ele.sharkTbody());
 
-                var tbody = ele.sharkTbody();
-                $scope.$parent.initTbody(tbody);
+                //var tbody = ele.sharkTbody();
+                //$scope.$parent.initTbody(tbody);
 
             }
         };
     });
+
+// <shark-tbody initTbody="init"></shark-tbody>

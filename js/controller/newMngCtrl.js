@@ -13,7 +13,7 @@ angular.module('routerApp')
 
 
         var tbody = null;
-        $scope.initTbody = function (ele) {
+        $scope.initTbody2 = function (ele) {
             // 通过指令的回调获取指令中初始化的table示例
             tbody = ele;
             // tbody.initData({
